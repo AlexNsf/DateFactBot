@@ -15,9 +15,10 @@ def is_valid_fact(fact: str) -> bool:  # Почти все события в в�
     return False
 
 
-def add_word_year_to_fact(date_fact: str) -> str:  # Для благозвучия добавляем "В году"
+def add_date_to_fact(date: str, date_fact: str) -> str:  # Для благозвучия добавляем "В году"
     date_fact_list = date_fact.split()
-    new_date_fact = 'В ' + date_fact_list[0] + ' году ' + ' '.join(date_fact_list[2:])
+    date_fact = date_fact_list[0] + ' ' + ' '.join(date_fact_list[2:])
+    new_date_fact = date.split('_')[0] + ' ' + date.split('_')[1] + ' ' + date_fact
     return new_date_fact
 
 
@@ -36,6 +37,6 @@ def get_date_fact(date: str) -> str:
         return 'Что-то пошло не так, попробуйте выбрать другую дату'
     facts_list = list(filter(is_valid_fact, facts_section.split('\n')))
     date_fact = random.choice(facts_list)
-    date_fact = add_word_year_to_fact(date_fact)
+    date_fact = add_date_to_fact(date, date_fact)
     return date_fact
 
