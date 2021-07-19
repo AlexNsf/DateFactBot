@@ -39,4 +39,3 @@ def get_date_fact(date: str) -> str:
     date_fact = random.choice(facts_list)
     date_fact = add_date_to_fact(date, date_fact)
     return date_fact
-

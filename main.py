@@ -6,7 +6,6 @@ import telebot
 import time
 import wiki_parser
 
-
 bot = telebot.TeleBot(config.secrets["tg"]["token"])
 
 
@@ -34,4 +33,3 @@ if __name__ == '__main__':
         except Exception as e:
             print(e)
             time.sleep(5)
-
